@@ -32,6 +32,9 @@
 // @lc code=start
 /**
  * 方法一：单调栈
+ * 所有元素都入栈，先入栈，然后再用栈顶元素和当前遍历元素比较
+ * 比当前元素小，则说明找到了结果，则添加到map中，栈顶元素作为key，当前遍历元素作为值
+ * 遍历完成后，需再检查栈中是否为空，不为空，则说明栈中剩余的元素没有找到结果
  * @param {number[]} nums1
  * @param {number[]} nums2
  * @return {number[]}
@@ -101,6 +104,8 @@ var nextGreaterElement = function(nums1, nums2) {
 
 /**
  * 方法一：单调栈
+ * 所有元素都倒着入栈，将当前遍历元素作为map的key，将栈顶元素（如果不为口）或-1作为map的值
+ * 检查栈顶元素如果小于当前遍历元素，则说明栈顶元素不符合要求，则出栈（与正着入栈的思路是不同的）
  * @param {number[]} nums1
  * @param {number[]} nums2
  * @return {number[]}
